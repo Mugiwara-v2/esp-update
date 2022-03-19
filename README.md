@@ -1,1 +1,1 @@
-# esp-update
+# ESP32-S2-AUTO-INSTALL

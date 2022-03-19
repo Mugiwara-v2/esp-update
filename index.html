@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<head>
+  <link rel="stylesheet" href="https://weloveiconfonts.com/api/?family=fontawesome" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300">
+
+  <link rel="stylesheet" href="style.css">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</head>
+<html>
+<link rel="stylesheet" href="//weloveiconfonts.com/api/?family=fontawesome" />
+
+<span class="icon"></span>
+<nav id="menu" class="off">
+    <div>
+	  <a onclick="animatescroll('#home');" class="home-link active">
+	  	<span>Home</span>
+	  </a>
+	  <a onclick="animatescroll('#install');" class="install-link">
+	  	<span>Install</span>
+	  </a>
+	  <a onclick="animatescroll('#video');" class="video-link">
+	  	<span>YouTube</span>
+	  </a>
+    </div>
+</nav>
+<body>
+    <section id="home">
+  <div class="container">
+    <h1>ESP32-S2 Web Installer for PS4 Homebrew</h1><br><br>
+    <p>A web installer for a modified version of the <a href="https://github.com/stooged/ESP32-Server-900u">ESP32-S2 Server 9.00</a> created by Stooged.<br><br>
+       I learned about the web installer method after watching this video by <a href="https://www.youtube.com/watch?v=YveqTTl0w24">Brian Lough</a>.<br><br>
+
+       I've modified the base image with the following:<br>
+       <li>GoldHEN v2.2 Added</li>    
+       <li>No Password for the PS4_WEB_AP Access Point</li>
+       <li>USB Wait Time is now at 3 seconds vs 10 seconds</li>
+<br>
+    </p>
+
+	  <p><b>Note:</b> Payloads are not included in this release. They can be added by connecting to this device via WiFi and 
+        navigating to the <a href="http://10.1.1.1/admin.html">admin.html</a> web interface. <br>
+    </p>
+  </div>
+</section>  	  
+	  
+<section id="install">
+  <div class="container">
+	  <div id="main" style="display: none;">
+	  <h1>Install</h1>
+        <script
+            type="module"
+            src="https://unpkg.com/esp-web-tools@7.1.0/dist/web/install-button.js?module"></script>
+        <esp-web-install-button id="installButton" manifest="bins/manifest.json"></esp-web-install-button>
+        <br><br><br><br>
+         <p><b>Note:</b> Close the Arduino IDE or anything that uses the COM port or this won't work!</p>
+    </div>
+	    <div id="notSupported" style="display: none;">
+		Your browser does not support the Web Serial API. Try the latest Chrome browser (Version 98.0.4758.102 (Official Build) (64-bit)
+	is what I used)
+	    </div>
+	</div>
+</section>  
+	
+<section id="video">
+  <div class="container">
+	  <h1>My YouTube Videos on the subject.</h>
+	  <h2>ESP32-S2 - This utility currently only supports this board.</h2>
+	  <iframe width="560" height="315" src="https://www.youtube.com/embed/kVvRV0i4Xr0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <h2>Raspberry Pi Zero W</h2>
+	  <iframe width="560" height="315" src="https://www.youtube.com/embed/cQhh54tIvYA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h2>ESP32</h2>
+	  <iframe width="560" height="315" src="https://www.youtube.com/embed/ZfU_1_iIBIA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	<h2>ESP8266</h2>
+	  <iframe width="560" height="315" src="https://www.youtube.com/embed/SbQI_FsXdpI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	</div>
+</section>  	  
+	  
+
+    <script>
+        if(navigator.serial){
+            document.getElementById("notSupported").style.display = 'none';
+            document.getElementById("main").style.display = 'block';
+        } else {
+            document.getElementById("notSupported").style.display = 'block';
+            document.getElementById("main").style.display = 'none';
+        }
+    </script>
+
+</body>
+<script src="main.js"></script>
+<footer>
+  <p>Subscribe to my <a href="https://www.youtube.com/channel/UCCjHMUEzoCauYet8NG4sCog">YouTube channel</a> for more PS4 Homebrew videos.</p>
+</footer>
+</html>
